@@ -1,6 +1,6 @@
 const axios = require('axios');
 const { Router } = require('express');
-const {Country, Op} = require('../db')
+const {Country, Actividad, Op} = require('../db')
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -35,11 +35,13 @@ router.get ('/countries', async (req, res) => {
                     name :{
                         [Op.iLike]: `%${name}%`
                     }
-                }
+                },
+                include: [{model: Actividad}]
             })
             res.json(countries.length > 0 ? countries : `No hay paises que contengan ${name}`)
         }else{
-            let conuntries = await Country.findAll()
+            let conuntries = await Country.findAll({include: [{model:Actividad}]})
+            // let conuntries = await Country.findAll({include: [{model:Actividad, attributes:["nombre"]}]})
             res.json(conuntries.length > 0 ? conuntries : 'No hay paises cargados')
         }
     } catch (error) {
@@ -50,13 +52,32 @@ router.get ('/countries', async (req, res) => {
 router.get ('/countries/:id', async (req, res) => {
     try {
         let {id} = req.params
-        let pais = await Country.findByPk(id.toUpperCase())
+        let pais = await Country.findByPk(id.toUpperCase(), {include: [{model:Actividad}]})
         res.json(pais ? pais : "No hay paises encontrados")
     } catch (error) {
         res.send(error)
     }
 })
 
+router.post('/activities', async (req, res) => {
+    try {
+        let {nombre, dificultad, duracion, Temprada, country} = req.body
+        let actividad = await Actividad.create({
+            nombre,
+            dificultad,
+            duracion, 
+            Temprada
+        })
+        let countrydb = await Country.findAll({
+            where : {name : country}
+        })
+        console.log(countrydb)
+        actividad.addCountry(countrydb)
 
+        res.send("Creado correctamente")
+    } catch (error) {
+        res.send(error)
+    }
+})
 
 module.exports = router;
