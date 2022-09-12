@@ -6,6 +6,7 @@ export const GET_DETAIL = 'GET_DETAIL'
 export const FILTER_BY_CONTINENT = 'FILTER_BY_CONTINENT'
 export const ORDER_BY_NAME = 'ORDER_BY_NAME'
 export const ORDER_BY_POPULATION = 'ORDER_BY_POPULATION'
+export const GET_NAMES = "GET_NAMES"
 
 export function getAllCountries () {
     return function (dispatch){
@@ -90,4 +91,21 @@ export function orderByPoblacion(countries, order){
         dispatch({type: ORDER_BY_POPULATION, payload: countries})
     }
     
+}
+
+export function getNames(){
+    return async function(dispatch){
+        let arr = []
+        try {
+            axios.get("http://localhost:3001/countries")
+            .then (resp => resp.data)
+            .then (resp => {
+                resp.map(name => arr.push(name.name))
+            })
+        dispatch({type: GET_NAMES, payload: arr})
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }

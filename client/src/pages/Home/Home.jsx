@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { filterByContinent, getAllCountries, orderByNames, orderByPoblacion } from "../../redux/actions"
 import Paginado from "../../components/Paginado/Paginado"
 import Cards from "../../components/Cards/Cards"
-import "./home.css"
+import moduleStyale from "./Home.module.css"
 import Search from "../../components/Search/Search"
 
 export default function Home (){
@@ -17,8 +17,8 @@ export default function Home (){
     const indexOfFirstCountry = indexOfLastCountry - countriesPerPage
     const currentCountries= countries.slice(indexOfFirstCountry, indexOfLastCountry)
 
+
     const paginado = (pageNumber) => {
-        console.log(pageNumber)
         setPage(pageNumber)
     }
 
@@ -45,11 +45,24 @@ export default function Home (){
         dispatch(getAllCountries())
     },[])
 
-
     return (
         <div>
-            <h1>HOME</h1>
-            <Search />
+            <div className={moduleStyale.banner}>
+                <h1 className={moduleStyale.h1Banner}>NEXT DESTINY</h1>
+                <div className={moduleStyale.divH3}>
+                    <h3 className={moduleStyale.h3Banner}>
+                        Encuentra tu próximo destino
+                    </h3>
+                </div>
+            </div>
+            <div className={moduleStyale.search}>
+                <Search/>
+            </div>
+            <Paginado 
+                countriesPerPage={countriesPerPage}
+                countires={countries.length}
+                paginado={paginado} 
+            />
             <select onChange={e => filtByContinent(e)}>
                 <option value="All">Todos</option>
                 <option value="Africa">Africa</option>
@@ -67,24 +80,16 @@ export default function Home (){
                 <option value="may">Mayor Poblacion</option>
                 <option value="men">Menor Poblacion</option>
             </select>
-            <Paginado 
-            countriesPerPage={countriesPerPage}
-            countires={countries.length}
-            paginado={paginado} 
-            />
-            <div className="div-home">
-                {
-                    currentCountries.length <= 0 ? "loading..." : currentCountries.map( country => {
-                        return (
-                            <Cards key={country.id}
-                                country={country}
-                            />
-                        )
-                    })
-                }
-            </div>
-
-
+        <div className={moduleStyale.divHome}>
+            {
+                currentCountries.length <= 0 ? "loading..." : currentCountries.map( country => {
+                    return (
+                        <Cards key={country.id}
+                            country={country}
+                        />
+                    )
+                })
+            }
         </div>
-    )
-}
+    </div>
+)}

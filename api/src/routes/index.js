@@ -38,7 +38,7 @@ router.get ('/countries', async (req, res) => {
                 },
                 include: [{model: Actividad}]
             })
-            res.json(countries.length > 0 ? countries : `No hay paises que contengan ${name}`)
+            res.json(countries.length > 0 ? countries : "")
         }else{
             let conuntries = await Country.findAll({include: [{model:Actividad}]})
             // let conuntries = await Country.findAll({include: [{model:Actividad, attributes:["nombre"]}]})
@@ -61,15 +61,15 @@ router.get ('/countries/:id', async (req, res) => {
 
 router.post('/activities', async (req, res) => {
     try {
-        let {nombre, dificultad, duracion, Temprada, country} = req.body
+        let {nombre, dificultad, duracion, temporada, paises} = req.body
         let actividad = await Actividad.create({
             nombre,
             dificultad,
             duracion, 
-            Temprada
+            temporada
         })
         let countrydb = await Country.findAll({
-            where : {name : country}
+            where : {name : paises}
         })
         console.log(countrydb)
         actividad.addCountry(countrydb)

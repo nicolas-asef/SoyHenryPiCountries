@@ -1,7 +1,8 @@
 const initialState = {
     countries : [],
     allCountries: [],
-    detail:[]
+    detail:[],
+    names:[]
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -40,6 +41,11 @@ const rootReducer = (state = initialState, action) => {
             return{
                 ...state,
                 countries: action.payload
+            }
+        case "GET_NAMES":
+            return {
+                ...state,
+                names: action.payload
             }
         default : return {...state}
     }

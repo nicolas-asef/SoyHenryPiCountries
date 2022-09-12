@@ -1,11 +1,18 @@
 import { Link } from "react-router-dom"
+import moduleStyle from "./Nav.module.css"
+import nextDestiny from "../../images/NEXT_DESTINY.png"
 
 export default function Nav (){
     return (
-        <div>
-            <Link to='/home'>Home</Link>
-            <Link to='/detalles'>Detalles</Link>
-            <Link to='/actividad'>Actividad</Link>
-        </div>
+
+        <nav className={moduleStyle.nav}>
+            <div className={moduleStyle.divImg}>
+                <img src={nextDestiny} alt="logo next-destiny" className={moduleStyle.img}/>
+            </div>
+            <div className={moduleStyle.divLink}>
+                <Link to='/home' className={moduleStyle.link}>Home</Link>
+                <Link to='/actividad' className={moduleStyle.link}>Actividad</Link>
+            </div>
+        </nav>
     )
 }

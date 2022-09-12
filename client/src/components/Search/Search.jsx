@@ -1,10 +1,11 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import moduleStyle from "./Search.module.css"
 
 import { getCountry } from "../../redux/actions"
 
 
-export default function Search(search){
+export default function Search(){
 
     const [input, setInput] = useState ("")
     const dispatch = useDispatch()
@@ -18,9 +19,10 @@ export default function Search(search){
         dispatch(getCountry(input))
     }
     return (
-        <form onSubmit={onSubmit}>
-            <input type="text" placeholder="Buscar Pais..." onChange={onChange} />
-            <button>Buscar</button>
+        <form onSubmit={onSubmit} className={moduleStyle.search}>
+            <label className={moduleStyle.label}></label>
+            <p className={moduleStyle.p}>Buscar Pais</p>
+            <input type="text" onChange={onChange} className={moduleStyle.input}/>
         </form>
     )
 }

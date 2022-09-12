@@ -1,0 +1,41 @@
+.search{
+    display: flex;
+    align-items: center;
+    border-radius: 10rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.input{
+    background-color: transparent;
+    border: 4px solid rgb(50, 50, 50);
+    height: 30px;
+    width: 30px;
+    padding: 0 0px;
+    font-size: 1.1em;
+    font-weight: lighter;
+    color: rgb(50, 50, 50);
+    border-radius: 24px;
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.input:focus{
+    width: 300px;
+    padding: 0 12px;
+    outline: none;
+}
+
+.label{
+    position: relative;
+}
+
+.p{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-right: 1rem;
+    font-size: 2rem;
+    color: rgb(50, 50, 50);
+
+}
