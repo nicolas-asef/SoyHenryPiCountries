@@ -3,16 +3,20 @@ import axios from "axios"
 export const GET_ALL_COUNTRIES = 'GET_ALL_COUNTRIES'
 export const GET_COUNTRY = 'GET_COUNTRY'
 export const GET_DETAIL = 'GET_DETAIL'
-export const FILTER_BY_CONTINENT = 'FILTER_BY_CONTINENT'
+export const FILTER = 'FILTER'
 export const ORDER_BY_NAME = 'ORDER_BY_NAME'
 export const ORDER_BY_POPULATION = 'ORDER_BY_POPULATION'
 export const GET_NAMES = "GET_NAMES"
+export const GET_ACTIVITY = "GET_ACTIVITY"
 
 export function getAllCountries () {
-    return function (dispatch){
-        fetch ("http://localhost:3001/countries")
-            .then (resp => resp.json())
-            .then (countries => dispatch({type: GET_ALL_COUNTRIES, payload: countries}))
+    return async function (dispatch){
+        try {
+            let countries = await axios.get ("http://localhost:3001/countries")
+            return (dispatch({type: GET_ALL_COUNTRIES, payload: countries.data}))
+        } catch (error) {
+            console.log(error)
+        }
     }
 };
 
@@ -38,13 +42,6 @@ export function getDetail(id){
 
     }
 }
-
-export function filterByContinent(contient){
-    return function (dispatch){
-        return dispatch ({type: FILTER_BY_CONTINENT, payload: contient})
-    }
-}
-
 export function orderByNames(countries, order){
 
     function orderByName( a, b )
@@ -67,8 +64,6 @@ export function orderByNames(countries, order){
         dispatch({type: ORDER_BY_NAME, payload: countries})
     }
 }
-
-
 export function orderByPoblacion(countries, order){
 
     console.log(order)
@@ -93,17 +88,56 @@ export function orderByPoblacion(countries, order){
     
 }
 
-export function getNames(){
-    return async function(dispatch){
-        let arr = []
-        try {
-            axios.get("http://localhost:3001/countries")
-            .then (resp => resp.data)
-            .then (resp => {
-                resp.map(name => arr.push(name.name))
-            })
-        dispatch({type: GET_NAMES, payload: arr})
+export function filter(countries ,contient, actividad){
+    console.log(countries, contient, actividad)
+    let filtrado = []
+    if (contient === "All" && actividad === "select"){
+        filtrado = countries
+    }
+    if (contient !== "All" && actividad === "select"){
+        filtrado = countries.filter (el => el.continente === contient)
+    }
+    if (contient === "All" && actividad !== "select"){
+        for (let i = 0; i < countries.length; i++) {
+            if (countries[i].Actividads.length > 0){
+                console.log("ENTRO AL IFFFF")
 
+                countries[i].Actividads.map(el => {
+                    if (el.id === actividad){
+                        filtrado.push(countries[i])
+                    }
+                })
+            }
+        }
+    }
+    if (contient !== "All" && actividad !== "select"){
+        for (let i = 0; i < countries.length; i++) {
+            if (countries[i].Actividads.length >0){
+
+                countries[i].Actividads.map(el => {
+                    if (el.id === actividad && countries[i].continente === contient){
+                        filtrado.push(countries[i])
+                    }
+                })
+            }
+            
+        }
+    }
+
+    
+    return function (dispatch){
+        return dispatch ({type: FILTER, payload: filtrado})
+    }
+
+}
+
+
+
+export function getActivity(){
+    return async function(dispatch){
+        try {
+            let actity = await axios.get("http://localhost:3001/activities")
+            return dispatch ({type:GET_ACTIVITY, payload: actity.data})
         } catch (error) {
             console.log(error)
         }

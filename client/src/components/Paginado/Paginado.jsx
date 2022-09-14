@@ -13,8 +13,8 @@ export default function Paginado ({countriesPerPage, countires, paginado}){
             <ul className={moduleStyle.ul}>
                 {pageNumber && pageNumber.map(number => {
                     return (
-                    <li className={moduleStyle.li} key={number}>
-                        <a onClick={()=> paginado(number)} className={moduleStyle.a}>{number}</a>
+                    <li className={moduleStyle.li} key={number} onClick={()=> paginado(number)} >
+                        <a className={moduleStyle.a}>{number}</a>
                     </li>
                     )
                 })}

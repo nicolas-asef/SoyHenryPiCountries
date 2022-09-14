@@ -9,7 +9,6 @@ import Landing from './pages/Landing/Landig';
 function App() {
   return (
     <div className="App">
-      <Nav/>
       <Routes>
         <Route path='/' element={<Landing/>} />
         <Route path='/home' element={<Home/>} />

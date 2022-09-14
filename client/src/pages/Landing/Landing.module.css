@@ -1,0 +1,63 @@
+.conteiner{
+    background-image: url("../../images/landingPag.jpg");
+    height: 100vh;
+
+
+
+}
+
+.opacity{
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100vh;
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.divH1{
+    grid-row: 2/3;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.h1{
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+    font-size: 125px;
+}
+
+.divH2{
+    margin: 0;
+    padding: 0;
+    grid-row: 3/4;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.h2{
+    color: #FFF;
+    font-size: 40px;
+}
+
+.linkBtn{
+    grid-row: 4/5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-decoration: none;
+}
+
+.btn{
+    width: 120px;
+    height: 60px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(0, 0, 0, 0.8);
+    border: 1px solid #FFF;
+    color: #FFF;
+    font-size: 20px;
+    text-decoration: none;
+
+}

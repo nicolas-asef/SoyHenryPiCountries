@@ -49,6 +49,15 @@ router.get ('/countries', async (req, res) => {
     }
 })
 
+router.get ('/activities', async (req, res) => {
+    try {
+        let activities = await Actividad.findAll({include: [{model:Country}]})
+        res.send(activities.length > 0 ? activities : "")
+    } catch (error) {
+        res.send(error)
+    }
+})
+
 router.get ('/countries/:id', async (req, res) => {
     try {
         let {id} = req.params

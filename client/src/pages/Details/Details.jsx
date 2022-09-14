@@ -1,9 +1,10 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import Cards from "../../components/Cards/Cards"
 import CardDetail from "../../components/Detail/CardDetail"
 import { getDetail } from "../../redux/actions"
+import Nav from "../../components/Nav/Nav"
+import moduleStyle from "./Details.module.css"
 
 
 export default function (){
@@ -15,18 +16,18 @@ export default function (){
     useEffect(()=> {
         dispatch(getDetail(id))
     },[dispatch])
-
+    console.log(detail)
     return (
         <div>
-            <h1>Detalles</h1>
-            {
-                detail.length <= 0 ? "Cargando..." : 
-                <CardDetail 
-                name= {detail.name}
-                bandera = {detail.bandera}
-                continente = {detail.continente}
-                />
-            }
+            <Nav />
+            <div className={moduleStyle.contenedor}>
+                {
+                    detail.length <= 0 ? "Cargando..." : 
+                    <CardDetail detail={detail}
+                    key={detail.id}
+                    />
+                }
+            </div>
         </div>
     )
 }

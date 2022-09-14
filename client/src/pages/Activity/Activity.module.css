@@ -1,0 +1,150 @@
+.formDiv{
+    background-image: url("../../images/acuerella.jpg");
+    background-size: contain;
+    height: 90vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+
+}
+
+.form{
+    width: 700px;
+    height: 80vh;
+    border: 2px solid rgb(50,50,50);
+    border-radius: 20px;
+    background-color: rgba(50,50,50,0.8);
+    font-size: 25px;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divh1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+
+}
+
+.divName{
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 600px;
+}
+
+.divDificultad{
+    grid-row: 3/4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 600px;
+}
+
+.divDuracion{
+    grid-row: 4/5;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+
+.divTemporada{
+    grid-row: 5/6;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+
+.divPaises{
+    grid-row: 6/7;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+
+.divPaisesSeleccionados{
+    grid-row: 7/8;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+
+.divBtn{
+    grid-row: 8/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.label{
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.input{
+    height: 30px;
+    width: 250px;
+    margin-right: 20px;
+}
+
+.error{
+    color: rgb(255, 0, 0);
+    font-size: 16px;
+    width: 320px;
+    height: 36px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+.divError{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    text-align: left;
+    
+}
+
+.select{
+    box-sizing: content-box;
+    height: 30px;
+    width: 250px;
+    padding: 2px 3px;
+    margin-right: 20px;
+}
+
+.btnAñadir{
+    width: 36px;
+    height: 36px;
+    color: black;
+    margin-right: 20px;
+}
+
+.divPaisSeleccionado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 20px;
+    margin: 10px;
+}
+
+.btnX{
+    width: 30px;
+    height: 20px;
+    margin: 10px;
+}

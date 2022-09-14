@@ -7,7 +7,9 @@ export default function Nav (){
 
         <nav className={moduleStyle.nav}>
             <div className={moduleStyle.divImg}>
-                <img src={nextDestiny} alt="logo next-destiny" className={moduleStyle.img}/>
+                <Link to="/">
+                    <img src={nextDestiny} alt="logo next-destiny" className={moduleStyle.img}/>
+                </Link>
             </div>
             <div className={moduleStyle.divLink}>
                 <Link to='/home' className={moduleStyle.link}>Home</Link>

@@ -22,7 +22,7 @@ const { conn } = require('./src/db.js');
 const {getApi} = require('./src/getApi.js')
 
 // Syncing all the models at once.
-conn.sync({ force: false }).then(() => { //cambiar a TRUE !!!!!!
+conn.sync({ force: false}).then(() => { //cambiar a TRUE !!!!!!
   server.listen(3001, async() => {
     // await getApi()
   console.log('%s listening at 3001'); // eslint-disable-line no-console
