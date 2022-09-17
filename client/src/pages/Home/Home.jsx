@@ -21,7 +21,6 @@ export default function Home (){
     const indexOfLastCountry = page * countriesPerPage
     const indexOfFirstCountry = indexOfLastCountry - countriesPerPage
     const currentCountries= countries.slice(indexOfFirstCountry, indexOfLastCountry)
-    console.log(countries)
 
 
     const paginado = (pageNumber) => {
@@ -77,7 +76,7 @@ export default function Home (){
                 </div>
             </div>
             <div className={moduleStyale.search}>
-                <Search/>
+                <Search />
             </div>
             <select onChange={e => filtByContinent(e)}>
                 <option value="All">Todos</option>

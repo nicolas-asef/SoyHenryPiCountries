@@ -16,7 +16,6 @@ export default function (){
     useEffect(()=> {
         dispatch(getDetail(id))
     },[dispatch])
-    console.log(detail)
     return (
         <div>
             <Nav />

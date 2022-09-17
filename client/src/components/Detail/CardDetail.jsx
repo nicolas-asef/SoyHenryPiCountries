@@ -3,7 +3,6 @@ import moduleStyles from "./CardDetail.module.css"
 
 export default function CardDetail (detail){
     let detalles = detail.detail
-    console.log(detalles)
     return (
         <div>
             <div className={moduleStyles.tarjeta}>

@@ -44,7 +44,6 @@ export default function Activity (){
 
 
     const handleInputChange = (e) => {
-        console.log(e.target.value)
         setInput({
             ...input,
             [e.target.name] : e.target.value
@@ -69,7 +68,6 @@ export default function Activity (){
         }))
     }
 
-    console.log(input)
 
     const selectPaisClick = (e) => {
         setSelectPais(e.target.value)
@@ -115,14 +113,14 @@ export default function Activity (){
                         <h1 className={moduleStyle.h1}>CREAR ACTIVIDAD</h1>
                     </div>
                     <div className={moduleStyle.divName}>
-                        <label className={moduleStyle.label}>Nombre: </label>
+                        <label className={moduleStyle.label}>Nombre </label>
                         <div className={moduleStyle.divError}>
                             <input type="text" name="nombre" value={input.nombre} onChange={handleInputChange} className={moduleStyle.input}/>
                             {error.nombre && <p className={moduleStyle.error}>{error.nombre}</p>}
                         </div>
                     </div>
                     <div className={moduleStyle.divDificultad}>
-                        <label className={moduleStyle.label}>Dificultad: </label>
+                        <label className={moduleStyle.label}>Dificultad </label>
                         <div className={moduleStyle.divError}>
                             <select name="dificultad"  value={input.dificultad} onChange={handleInputChange} className={moduleStyle.select}>
                                 <option value="seleccionar">Seleccionar</option>
@@ -136,14 +134,14 @@ export default function Activity (){
                         </div>
                     </div>
                     <div className={moduleStyle.divDuracion}>
-                        <label className={moduleStyle.label}>Duracion: </label>
+                        <label className={moduleStyle.label}>Duracion </label>
                         <div className={moduleStyle.divError}>
                             <input type="text" name="duracion"  value={input.duracion} onChange={handleInputChange} className={moduleStyle.input}/>
                             {error.duracion && <p className={moduleStyle.error}>{error.duracion}</p>}
                         </div>
                     </div>
                     <div className={moduleStyle.divTemporada}>
-                        <label className={moduleStyle.label}>Temporada: </label>
+                        <label className={moduleStyle.label}>Temporada </label>
                         <div className={moduleStyle.divError}>
                             <select name="temporada"  value={input.temporada} onChange={handleInputChange} className={moduleStyle.select}>
                                 <option value="seleccionar">Seleccionar</option>
@@ -156,7 +154,7 @@ export default function Activity (){
                         </div>
                     </div>
                     <div className={moduleStyle.divPaises}>
-                        <label className={moduleStyle.label}>Paises: </label>
+                        <label className={moduleStyle.label}>Paises </label>
                         <div className={moduleStyle.divError}>
                             <select onChange={selectPaisClick} className={moduleStyle.select}>
                                 <option value="seleccionar" default>Seleccionar</option>

@@ -89,4 +89,25 @@ router.post('/activities', async (req, res) => {
     }
 })
 
+router.post('/paises', async (req, res) => {
+    try {
+        let {id, name, bandera, continente, capital, subRegion, area, poblacion} = req.body
+        let pais = await Country.create({
+            id,
+            name,
+            bandera,
+            continente,
+            capital,
+            subRegion,
+            area,
+            poblacion
+        })
+        res.send(pais)
+    } catch (error) {
+        res.send(error)
+    }
+    
+})
+
 module.exports = router;
+
