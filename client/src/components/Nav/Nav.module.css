@@ -18,13 +18,24 @@
 }
 
 .divLink{
-    grid-column: 10/12;
+    grid-column: 4/12;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .link{
     text-decoration: none;
     color: black;
     font-size: 20px;
+    padding-left: 80px;
 }
+
+
+@media screen and (max-width: 576px) {
+    .link{
+        font-size: 20px;
+        padding-left: 49px;
+    }
+}
+
+

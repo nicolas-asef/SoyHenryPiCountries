@@ -21,9 +21,9 @@ export default function Search({paginado}){
     }
     return (
         <form onSubmit={onSubmit} className={moduleStyle.search}>
-            <label className={moduleStyle.label}></label>
-            <p className={moduleStyle.p}>Buscar Pais</p>
-            <input type="text" onChange={onChange} className={moduleStyle.input}/>
+                <label className={moduleStyle.label}></label>
+                <p className={moduleStyle.p}>Buscar Pais</p>
+                <input type="text" onChange={onChange} className={moduleStyle.input}/>
         </form>
     )
 }
