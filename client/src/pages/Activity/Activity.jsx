@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import CustomizedSnackbars from "../../components/CustomizedSnackbars/CustomizedSnackbars"
 import Nav from "../../components/Nav/Nav"
 import { getAllCountries } from "../../redux/actions"
 import moduleStyle from "./Activity.module.css"
@@ -89,7 +90,6 @@ export default function Activity (){
         console.log(Object.keys(error).length === 0)
         if (Object.keys(error).length === 0){
             await axios.post('http://localhost:3001/activities', input)
-            alert("Formulario ENVIADO")
             setInput({
                 nombre:"",
                 dificultad:"",
@@ -97,6 +97,7 @@ export default function Activity (){
                 temporada:"",
                 paises:[]
             })
+            setError({1: ''})
         }
     }
     console.log(input)
@@ -172,18 +173,19 @@ export default function Activity (){
                             </div>
                             {error.paises && <p className={moduleStyle.error}>{error.paises}</p>}
                         </div>
-                        {input.paises && input.paises.map(pais => (
-                            <div className={moduleStyle.divPaisSeleccionado}>
-                                <p>{pais}</p>
-                                <button onClick={eliminarPais} value={pais} name="paises" className={moduleStyle.btnX}>x</button>
-                            </div>
-                        ))}
-                    </div>
-                    <div className={moduleStyle.divPaisesSeleccionados}>
-
+                        <div className={moduleStyle.divPaisSelec}>
+                            {input.paises && input.paises.map(pais => (
+                                <div className={moduleStyle.divPaisSeleccionado}>
+                                    <p className={moduleStyle.pPais}>{pais.substring(0, 3).toUpperCase()}</p>
+                                    <button onClick={eliminarPais} value={pais} name="paises" className={moduleStyle.btnX}>x</button>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                     <div className={moduleStyle.divBtn}>
-                        <button type="submit" className={moduleStyle.btn}>Enviar</button>
+                        {Object.keys(error).length === 0
+                        ? <CustomizedSnackbars />
+                        : <button className={moduleStyle.buttonEnviar}>Enviar</button>}
                     </div >
                 </form>
             </div>

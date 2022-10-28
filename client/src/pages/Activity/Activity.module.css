@@ -33,7 +33,6 @@
     background-color: #DDF9ED;
     color: #006B4F;
 }
-
 .divBottom{
     display: flex;
     justify-content: center;
@@ -41,9 +40,7 @@
 }
 
 .h1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 50px;
 }
 
 .divh1{
@@ -65,7 +62,7 @@
 
 .divDificultad{
     grid-row: 3/4;
-    min-height: 110px;
+    min-height: 107px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,7 +70,7 @@
 }
 
 .divDuracion{
-    min-height: 110px;
+    min-height: 107px;
     grid-row: 4/5;
     display: flex;
     flex-direction: column;
@@ -82,7 +79,7 @@
 }
 
 .divTemporada{
-    min-height: 110px;
+    min-height: 107px;
     grid-row: 5/6;
     display: flex;
     flex-direction: column;
@@ -91,11 +88,12 @@
 }
 
 .divPaises{
-    min-height: 110px;
+    min-height: 107px;
     grid-row: 6/7;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     width: 600px;
 }
 
@@ -106,12 +104,6 @@
     width: 600px;
 }
 
-.divBtn{
-    grid-row: 8/9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 .label{
     font-weight: 700;
@@ -124,12 +116,14 @@
 
 .input{
     height: 50px;
-    width: 450px;
+    width: 426px;
     margin-right: 20px;
     text-decoration: none;
     outline: 0px;
     border-radius: 10px;
     font-size: 24px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .error{
@@ -142,20 +136,18 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    
 }
 
 .divError{
     display: flex;
     flex-direction: column;
     text-align: left;
-    
 }
 
 .select{
     box-sizing: content-box;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 24px;
     height: 50px;
     width: 450px;
     padding: 2px 3px;
@@ -165,7 +157,7 @@
 .selectPais{
     box-sizing: content-box;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 24px;
     height: 50px;
     width: 400px;
     padding: 2px 3px;
@@ -175,11 +167,11 @@
     margin-right: 20px;
     margin-left: 20px;
     width: 30px;
-    height: 29px;
+    height: 30px;
     border-radius: 100%;
-    font-weight: bold;
-    background-color: black;
-    color: white;
+    background-color: #DDF9ED;
+    color: #006B4F;
+    border: 2px solid #006B4F;
 
 }
 
@@ -194,12 +186,117 @@
 
 .btnX{
     width: 30px;
-    height: 20px;
+    height: 30px;
     margin: 10px;
+    border-radius: 100%;
+    color: #B52217;
+    background-color: #FFE3E3;
+    border: 1px solid #B52217;
 }
 
 .divPaisesButon{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.divPaisSelec{
+    width: 500px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.divBtn{
+    grid-row: 7/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonEnviar{
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    font-size: 20px;
+    color: #B52217;
+    background-color: #FFE3E3;
+    border: 1px solid #B52217;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 800px) { 
+    .form{
+        width: 500px;
+        height: 60vh;
+    }
+    .h1{
+        font-size: 30px;
+    }
+    .input{
+        height: 40px;
+        width: 300px;
+        margin-right: 15px;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+    .error{
+        margin-top: 0px;
+        font-size: 12px;
+        width: 320px;
+        height: 20px;
+        padding-top: 5px;        
+    }
+    .select{
+        box-sizing: content-box;
+        font-size: 18px;
+        height: 40px;
+        width: 319px;
+    }
+    .selectPais{
+        font-size: 18px;
+        height: 40px;
+        width: 269px;
+        padding: 2px 3px;
+    }
+    .divPaisSelec{
+        width: 370px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .buttonEnviar{
+        height: 35px;
+        width: 70px;
+        font-size: 15px;
+
+    }
+    .divName{
+        min-height: 85px;
+    }
+    
+    .divDificultad{
+        min-height: 85px;
+    }
+    
+    .divDuracion{
+        min-height: 85px;
+    }
+    
+    .divTemporada{
+        min-height: 85px;
+    }
+    
+    .divPaises{
+        min-height: 85px;
+    }
+    .pPais{
+        font-size: 20px;
+    }
+    .btnX{
+        width: 20px;
+        height: 20px;
+        margin: 5px;
+    }
 }
