@@ -7,6 +7,7 @@ import moduleStyale from "./Home.module.css"
 import Search from "../../components/Search/Search"
 import Nav from "../../components/Nav/Nav"
 import Filters from "../../components/Filters/Filters"
+import Banner from "../../components/Banner/Banner"
 
 export default function Home (){
 
@@ -33,20 +34,10 @@ export default function Home (){
         dispatch(getActivity())
     },[])
 
-
-
-
     return (
         <div>
             <Nav />
-            <div className={moduleStyale.banner}>
-                <h1 className={moduleStyale.h1Banner}>NEXT DESTINY</h1>
-                <div className={moduleStyale.divH3}>
-                    <h3 className={moduleStyale.h3Banner}>
-                        Encuentra tu próximo destino
-                    </h3>
-                </div>
-            </div>
+            <Banner />
             <div className={moduleStyale.search}>
                 <Search paginado={paginado} />
             </div>

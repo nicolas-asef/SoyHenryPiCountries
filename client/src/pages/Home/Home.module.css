@@ -1,27 +1,3 @@
-.banner{
-    background-image: url("../../images/world3.jpg");
-    width: 100%;
-    background-size: cover;
-    background-position: center center;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.h1Banner{
-    color: rgb(255, 255, 255);
-    font-size: 6rem;
-    margin: 0;
-    font-family: another;
-}
-
-.h3Banner{
-    color: rgb(230, 230, 230);
-    font-size: 2rem;
-    margin: 0;
-}
-
 .divPaises{
     display: flex;
     justify-content: center;
