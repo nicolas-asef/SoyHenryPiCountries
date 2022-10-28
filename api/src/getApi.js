@@ -18,6 +18,7 @@ async function getApi (){
         }        
     })
     let filter = countries.filter(el => el !== undefined)
+    console.log(Country)
     await Country.bulkCreate(filter);
 }
 

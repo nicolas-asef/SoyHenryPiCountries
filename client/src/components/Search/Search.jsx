@@ -5,7 +5,7 @@ import moduleStyle from "./Search.module.css"
 import { getCountry } from "../../redux/actions"
 
 
-export default function Search(){
+export default function Search({paginado}){
 
     const [input, setInput] = useState ("")
     const dispatch = useDispatch()
@@ -17,6 +17,7 @@ export default function Search(){
     const onSubmit = (e) => {
         e.preventDefault()
         dispatch(getCountry(input))
+        paginado(1)
     }
     return (
         <form onSubmit={onSubmit} className={moduleStyle.search}>

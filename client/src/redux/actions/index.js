@@ -43,6 +43,7 @@ export function getDetail(id){
     }
 }
 export function orderByNames(countries, order){
+    console.log(countries)
 
     function orderByName( a, b )
         {

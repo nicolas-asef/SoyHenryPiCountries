@@ -99,6 +99,7 @@ export default function Activity (){
             })
         }
     }
+    console.log(input)
 
     useEffect(()=> {
         dispatch(getAllCountries())
