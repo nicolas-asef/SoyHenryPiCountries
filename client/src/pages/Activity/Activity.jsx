@@ -7,20 +7,20 @@ import moduleStyle from "./Activity.module.css"
 
 export function validate (input){
     let error = {}
-    if (!input.nombre) error.nombre = 'Campo requerido'
+    if (!input.nombre) error.nombre = '* Campo requerido'
     else if(!/(?!.*[\.\-\_]{2,})^[a-zA-Z \.\-\_]{3,35}$/.test(input.nombre)){
         error.nombre = "Entre 3 y 35 caracteres y contener solo letras"
     }
-    if (!input.dificultad) error.dificultad = 'Campo requerido'
-    else if (input.dificultad === "seleccionar") error.dificultad = 'Campo requerido'
-    if (!input.duracion) error.duracion = 'Campo requerido'
+    if (!input.dificultad) error.dificultad = '* Campo requerido'
+    else if (input.dificultad === "seleccionar") error.dificultad = '* Campo requerido'
+    if (!input.duracion) error.duracion = '* Campo requerido'
     else if(!/^(((0|1)[0-9])|2[0-3]):[0-5][0-9]$/.test(input.duracion)){
         error.duracion = "Valores entre 00:00 y 23:59"
     }
-    if (!input.temporada) error.temporada = 'Campo requerido'
-    else if (input.temporada === "seleccionar") error.temporada = 'Campo requerido'
-    if (input.paises.length === 0) error.paises = 'Campo requerido'
-    else if (input.paises === "seleccionar") error.paises = 'Campo requerido'
+    if (!input.temporada) error.temporada = '* Campo requerido'
+    else if (input.temporada === "seleccionar") error.temporada = '* Campo requerido'
+    if (input.paises.length === 0) error.paises = '* Campo requerido'
+    else if (input.paises === "seleccionar") error.paises = '* Campo requerido'
     return error
 }
 
@@ -106,25 +106,26 @@ export default function Activity (){
     },[dispatch])
 
     return (
-        <div>
-            <Nav />
             <div className={moduleStyle.formDiv}>
+            <Nav page={"activity"}/>
+            <div className={moduleStyle.divBottom}>
                 <form onSubmit={manejarEnvio} className={moduleStyle.form}>
                     <div className={moduleStyle.divh1}>
                         <h1 className={moduleStyle.h1}>CREAR ACTIVIDAD</h1>
                     </div>
                     <div className={moduleStyle.divName}>
-                        <label className={moduleStyle.label}>Nombre </label>
                         <div className={moduleStyle.divError}>
-                            <input type="text" name="nombre" value={input.nombre} onChange={handleInputChange} className={moduleStyle.input}/>
+                            <input type="text" name="nombre" value={input.nombre} onChange={handleInputChange} 
+                            className={error.nombre ? `${moduleStyle.input} ${moduleStyle.mal}` : `${moduleStyle.input} ${moduleStyle.bien}`}
+                            placeholder="Nombre de la Actividad"/>
                             {error.nombre && <p className={moduleStyle.error}>{error.nombre}</p>}
                         </div>
                     </div>
                     <div className={moduleStyle.divDificultad}>
-                        <label className={moduleStyle.label}>Dificultad </label>
                         <div className={moduleStyle.divError}>
-                            <select name="dificultad"  value={input.dificultad} onChange={handleInputChange} className={moduleStyle.select}>
-                                <option value="seleccionar">Seleccionar</option>
+                            <select name="dificultad"  value={input.dificultad} onChange={handleInputChange} 
+                            className={error.dificultad ? `${moduleStyle.select} ${moduleStyle.mal}` : `${moduleStyle.select} ${moduleStyle.bien}`}>
+                                <option value="seleccionar">Dificultad</option>
                                 <option value={1}>Muy facil</option>
                                 <option value={2}>Facil</option>
                                 <option value={3}>Media</option>
@@ -135,17 +136,18 @@ export default function Activity (){
                         </div>
                     </div>
                     <div className={moduleStyle.divDuracion}>
-                        <label className={moduleStyle.label}>Duracion </label>
                         <div className={moduleStyle.divError}>
-                            <input type="text" name="duracion"  value={input.duracion} onChange={handleInputChange} className={moduleStyle.input}/>
+                            <input type="text" name="duracion" value={input.duracion} onChange={handleInputChange} 
+                            className={error.duracion ? `${moduleStyle.input} ${moduleStyle.mal}` : `${moduleStyle.input} ${moduleStyle.bien}`}
+                            placeholder="Duracion"/>
                             {error.duracion && <p className={moduleStyle.error}>{error.duracion}</p>}
                         </div>
                     </div>
                     <div className={moduleStyle.divTemporada}>
-                        <label className={moduleStyle.label}>Temporada </label>
                         <div className={moduleStyle.divError}>
-                            <select name="temporada"  value={input.temporada} onChange={handleInputChange} className={moduleStyle.select}>
-                                <option value="seleccionar">Seleccionar</option>
+                            <select name="temporada"  value={input.temporada} onChange={handleInputChange} 
+                            className={error.temporada ? `${moduleStyle.select} ${moduleStyle.mal}` : `${moduleStyle.select} ${moduleStyle.bien}`}>>
+                                <option value="seleccionar">Temporada</option>
                                 <option value="Verano">Verano</option>
                                 <option value="Otoño">Otoño</option>
                                 <option value="Primavera">Primavera</option>
@@ -155,17 +157,19 @@ export default function Activity (){
                         </div>
                     </div>
                     <div className={moduleStyle.divPaises}>
-                        <label className={moduleStyle.label}>Paises </label>
                         <div className={moduleStyle.divError}>
-                            <select onChange={selectPaisClick} className={moduleStyle.select}>
-                                <option value="seleccionar" default>Seleccionar</option>
-                                {
-                                    countries && countries.map(paises => (
-                                        <option value={paises.pais}>{paises.name}</option>
-                                    ))
-                                }
-                            </select>
-                            <button onClick={handlePaisesChange} value={input.pais} name="paises" className={moduleStyle.btnAñadir}> ✓ </button>
+                            <div className={moduleStyle.divPaisesButon}>
+                                <select onChange={selectPaisClick} 
+                                className={error.paises ? `${moduleStyle.selectPais} ${moduleStyle.mal}` : `${moduleStyle.selectPais} ${moduleStyle.bien}`}>
+                                    <option value="seleccionar" default>Paises</option>
+                                    {
+                                        countries && countries.map(paises => (
+                                            <option value={paises.pais}>{paises.name}</option>
+                                        ))
+                                    }
+                                </select>
+                                <button onClick={handlePaisesChange} value={input.pais} name="paises" className={moduleStyle.btnAñadir}> ✓ </button>
+                            </div>
                             {error.paises && <p className={moduleStyle.error}>{error.paises}</p>}
                         </div>
                         {input.paises && input.paises.map(pais => (
@@ -183,6 +187,6 @@ export default function Activity (){
                     </div >
                 </form>
             </div>
-        </div>
+            </div>
 )}
 

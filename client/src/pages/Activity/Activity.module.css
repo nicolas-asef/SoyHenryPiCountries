@@ -1,11 +1,11 @@
 .formDiv{
-    background-image: url("../../images/acuerella.jpg");
-    background-size: contain;
-    height: 90vh;
+    background-image: url("../../images/paisaje2.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
     margin: 0;
     display: flex;
-    justify-content: center;
-
+    flex-direction: column;
 }
 
 .form{
@@ -13,13 +13,31 @@
     height: 80vh;
     border: 2px solid rgb(50,50,50);
     border-radius: 20px;
-    background-color: rgba(50,50,50,0.8);
+    background-color: rgba(50, 50, 50, 0.493);
     font-size: 25px;
     display: grid;
     grid-template-rows: repeat(8, 1fr);
     justify-content: center;
     align-items: center;
     color: #fff;
+}
+
+.mal{
+    border: 2px solid #B52217;
+    background-color: #FFE3E3;
+    color: #B52217;
+}
+
+.bien{
+    border: 2px solid #006B4F;
+    background-color: #DDF9ED;
+    color: #006B4F;
+}
+
+.divBottom{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 }
 
 .h1{
@@ -38,38 +56,46 @@
 
 .divName{
     grid-row: 2/3;
+    min-height: 110px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     width: 600px;
 }
 
 .divDificultad{
     grid-row: 3/4;
+    min-height: 110px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     width: 600px;
 }
 
 .divDuracion{
+    min-height: 110px;
     grid-row: 4/5;
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 600px;
 }
 
 .divTemporada{
+    min-height: 110px;
     grid-row: 5/6;
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 600px;
 }
 
 .divPaises{
+    min-height: 110px;
     grid-row: 6/7;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     width: 600px;
 }
 
@@ -97,14 +123,20 @@
 }
 
 .input{
-    height: 30px;
-    width: 250px;
+    height: 50px;
+    width: 450px;
     margin-right: 20px;
+    text-decoration: none;
+    outline: 0px;
+    border-radius: 10px;
+    font-size: 24px;
 }
 
 .error{
     color: rgb(255, 0, 0);
-    font-size: 16px;
+    margin-top: 0px;
+    font-size: 15px;
+    font-weight: normal;
     width: 320px;
     height: 36px;
     display: flex;
@@ -115,26 +147,40 @@
 
 .divError{
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
+    flex-direction: column;
     text-align: left;
     
 }
 
 .select{
     box-sizing: content-box;
-    height: 30px;
-    width: 250px;
+    border-radius: 10px;
+    font-size: 20px;
+    height: 50px;
+    width: 450px;
     padding: 2px 3px;
     margin-right: 20px;
 }
 
+.selectPais{
+    box-sizing: content-box;
+    border-radius: 10px;
+    font-size: 20px;
+    height: 50px;
+    width: 400px;
+    padding: 2px 3px;
+}
+
 .btnAñadir{
-    width: 36px;
-    height: 36px;
-    color: black;
     margin-right: 20px;
+    margin-left: 20px;
+    width: 30px;
+    height: 29px;
+    border-radius: 100%;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+
 }
 
 .divPaisSeleccionado{
@@ -150,4 +196,10 @@
     width: 30px;
     height: 20px;
     margin: 10px;
+}
+
+.divPaisesButon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

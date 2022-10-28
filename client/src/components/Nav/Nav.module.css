@@ -7,18 +7,29 @@
     margin: 0
 }
 
+
 .divImg{
     height: 10vh;
-    grid-column: 2/3;
+    grid-column: 2/5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.img{
-    object-fit: fill;
-    height: 100%;
+.link{
+    text-decoration: none;
+}
+
+.h1{
+    color: black;
+}
+
+.h1White{
+    color: white;
 }
 
 .divLink{
-    grid-column: 4/12;
+    grid-column: 6/12;
     display: flex;
     justify-content: flex-end;
 }
@@ -26,6 +37,13 @@
 .link{
     text-decoration: none;
     color: black;
+    font-size: 20px;
+    padding-left: 80px;
+}
+
+.linkWhite{
+    text-decoration: none;
+    color: white;
     font-size: 20px;
     padding-left: 80px;
 }
