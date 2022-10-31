@@ -8,11 +8,13 @@ import Search from "../../components/Search/Search"
 import Nav from "../../components/Nav/Nav"
 import Filters from "../../components/Filters/Filters"
 import Banner from "../../components/Banner/Banner"
+import Loading from "../../components/Loading/Loading"
 
 export default function Home (){
 
     const dispatch = useDispatch()
     const countries = useSelector(state => state.countries)
+    const [loading, setLoading] = useState(false)
     const [actualizar, setActualizar] = useState (true)
     const [page, setPage] = useState(1)
     const [countriesPerPage, setcountriesPerPage] = useState(10)
@@ -30,8 +32,10 @@ export default function Home (){
     }
 
     useEffect(async ()=> {
-        dispatch(getAllCountries())
-        dispatch(getActivity())
+        setLoading(false)
+        await dispatch(getAllCountries())
+        await dispatch(getActivity())
+        setLoading(true)
     },[])
 
     return (
@@ -45,7 +49,9 @@ export default function Home (){
                 <Filters countries={countries} callbk={render} paginado={paginado}/>
             </div>
             <div className={moduleStyale.divPaises}>
-                <div className={moduleStyale.divHome}>
+                {loading === false 
+                    ? <Loading /> 
+                    : <div className={moduleStyale.divHome}>
                     {
                         currentCountries.length <= 0 ? <h2>No se han encontrados paises que coincidan con esa busqueda</h2>: currentCountries.map( country => {
                             return (
@@ -55,7 +61,8 @@ export default function Home (){
                             )
                         })
                     }
-                </div>
+                    </div>
+                }
             </div>
             <Paginado 
                 countriesPerPage={countriesPerPage}
