@@ -18,14 +18,16 @@ export default function (){
     },[dispatch])
     return (
         <div>
-            <Nav />
             <div className={moduleStyle.contenedor}>
+            <Nav page={"activity"} />
+            <div className={moduleStyle.divDetail}>
                 {
                     detail.length <= 0 ? "Cargando..." : 
                     <CardDetail detail={detail}
                     key={detail.id}
                     />
                 }
+            </div>
             </div>
         </div>
     )

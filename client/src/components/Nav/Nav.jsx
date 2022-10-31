@@ -8,6 +8,7 @@ export default function Nav ({page}){
     const colorH1 = () => {
         if (page === "activity") return moduleStyle.h1White
         else return moduleStyle.h1
+
     }
 
     const colorLink = () => {
@@ -24,8 +25,8 @@ export default function Nav ({page}){
                 </Link>
             </div>
             <div className={moduleStyle.divLink}>
-                <Link to='/home' className={colorLink()}>Home</Link>
-                <Link to='/actividad' className={colorLink()}>Actividad</Link>
+                <Link to='/home' className={colorLink()}>INICIO</Link>
+                <Link to='/actividad' className={colorLink()}>ACTIVIDADES</Link>
             </div>
         </nav>
     )

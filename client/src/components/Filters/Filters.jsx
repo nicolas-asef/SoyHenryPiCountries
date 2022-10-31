@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { filter, orderByNames, orderByPoblacion } from "../../redux/actions"
+import style from "./Filters.module.css"
 
 export default function Filters ({countries, callbk, paginado}) {
     console.log(paginado)
@@ -45,31 +46,37 @@ export default function Filters ({countries, callbk, paginado}) {
     
 
     return (
-        <div>
-            <select onChange={e => filtByContinent(e)}>
-                <option value="All">Todos</option>
-                <option value="Africa">Africa</option>
-                <option value="Americas">America</option>
-                <option value="Antarctic">Antártida</option>
-                <option value="Asia">Asia</option>
-                <option value="Europe">Europa</option>
-                <option value="Oceania">Oceania</option>
-            </select>
-            <select onChange={e => orderBy(e)}>
-                <option value="select">Seleccionar</option>
-                <option value="asc">Ascendente</option>
-                <option value="des">Descendente</option>
-                <option value="may">Mayor Poblacion</option>
-                <option value="men">Menor Poblacion</option>
-            </select>
-            <select onChange={e => filterByActivity(e)}>
-                <option value="select">Seleccionar</option>
-                {activity.length > 0 && activity.map (activity => {
-                    return (
-                        <option value={activity.id} key={activity.id}>{activity.nombre}</option>
-                    )
-                })}
-            </select>
+        <div className={style.filter}>
+            <div className={style.divFilter}>
+                <label className={style.label}>Filtrar por: </label>
+                <select className={style.select} onChange={e => filtByContinent(e)}>
+                    <option value="All">Continente</option>
+                    <option value="Africa">Africa</option>
+                    <option value="Americas">America</option>
+                    <option value="Antarctic">Antártida</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Europe">Europa</option>
+                    <option value="Oceania">Oceania</option>
+                </select>
+                <select className={style.select} onChange={e => filterByActivity(e)}>
+                    <option value="select">Actividad</option>
+                    {activity.length > 0 && activity.map (activity => {
+                        return (
+                            <option value={activity.id} key={activity.id}>{activity.nombre}</option>
+                        )
+                    })}
+                </select>
+            </div>
+            <div className={style.divFilter}>
+                <label className={style.label}>Ordenar: </label>
+                <select className={style.select} onChange={e => orderBy(e)}>
+                    <option value="select">Seleccionar</option>
+                    <option value="asc">Ascendente</option>
+                    <option value="des">Descendente</option>
+                    <option value="may">Mayor Poblacion</option>
+                    <option value="men">Menor Poblacion</option>
+                </select>
+            </div>
         </div>
 
     )

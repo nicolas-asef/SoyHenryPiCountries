@@ -1,10 +1,12 @@
 .contenedor{
-    background-image: url("../../images/acuerella.jpg");
-    background-size: contain;
-    height: 90vh;
+    background-image: url("../../images/pasiaje3.jpg");
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
     margin: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .tarjeta{
@@ -19,4 +21,11 @@
     justify-content: center;
     align-items: center;
     color: #fff;
+}
+
+.divDetail{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

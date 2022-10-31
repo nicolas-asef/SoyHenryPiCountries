@@ -27,9 +27,9 @@ export default function CustomizedSnackbars() {
   return (
     <Stack spacing={2} className={style.divBtn} sx={{ width: '100%' }}>
       <button className={style.btn} onClick={handleClick} >Enviar</button>
-      <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
+      <Snackbar open={open} autoHideDuration={10000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-          This is a success message!
+          Crado con exito!
         </Alert>
       </Snackbar>
     </Stack>

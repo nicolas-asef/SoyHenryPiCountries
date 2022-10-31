@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     height: 10vh;
+    width: 100%;
     justify-content: center;
     align-items: center;
     margin: 0
@@ -14,10 +15,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.link{
-    text-decoration: none;
 }
 
 .h1{
@@ -43,6 +40,7 @@
 
 .linkWhite{
     text-decoration: none;
+    font-weight: bold;
     color: white;
     font-size: 20px;
     padding-left: 80px;

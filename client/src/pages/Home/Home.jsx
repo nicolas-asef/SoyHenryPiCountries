@@ -36,7 +36,7 @@ export default function Home (){
 
     return (
         <div>
-            <Nav />
+            {/* <Nav /> */}
             <Banner />
             <div className={moduleStyale.search}>
                 <Search paginado={paginado} />
